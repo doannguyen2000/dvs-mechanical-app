@@ -1,0 +1,27 @@
+#sidebar {
+    min-width: 150px;
+}
+
+@media screen and (max-width: 991px) {
+    body {
+        font-size: 80% !important;
+    }
+
+    #sidebar {
+        min-width: auto;
+    }
+
+    #sidebar nav {
+        margin: 0 0;
+    }
+
+    #sidebar i {
+        margin: auto;
+        width: auto;
+    }
+
+    #sidebar span {
+        display: none;
+        transition: 1s;
+    }
+}
