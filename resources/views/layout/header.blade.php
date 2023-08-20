@@ -1,9 +1,26 @@
-<nav class="navbar bg-body-tertiary rounded mb-2">
+<nav class="navbar bg-dark border-bottom position-fixed" id="navHeader" data-bs-theme="dark">
     <div class="d-flex justify-content-between w-100 px-3">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        <div class="text-primary text-start" id="headerWater">
+            <i class="fa-solid fa-water"></i>
+            <i class="fa-solid fa-water"></i>
+            <i class="fa-solid fa-water"></i>
+            <i class="fa-solid fa-water"></i>
+            <i class="fa-solid fa-water"></i>
+        </div>
+        <div id="headerSearch">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+                <button class="btn btn-outline-success" type="submit"><i
+                        class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div class="text-danger text-start" id="headerFire">
+            <i class="fa-solid fa-fire"></i>
+            <i class="fa-solid fa-fire"></i>
+            <i class="fa-solid fa-fire"></i>
+            <i class="fa-solid fa-fire"></i>
+            <i class="fa-solid fa-fire"></i>
+        </div>
         <div>
             {{-- Phản hồi --}}
             <div class="btn-group">

@@ -15,19 +15,24 @@
     @if (Route::currentRouteName() === 'login' || Route::currentRouteName() === 'register')
         @yield('content')
     @else
-        <div class="container-fluid border">
-            <div class="d-flex" style="min-height: 99vh">
-                <div class="border me-1 rounded-end" id="sidebar">
-                    <nav class="navbar bg-body-tertiary">
-                        <a class="btn btn-outline-success w-100 text-center"><span>{{ __('DVS') }}</span><i
-                                class="fa-solid fa-dragon"></i></a>
+        <div class="container-fluid bg-secondary m-0 p-0">
+            @include('layout.header')
+            <div class="d-flex vh-100">
+                <div class="bg-dark sidebar" id="sidebar" data-bs-theme="dark">
+                    <nav class="navbar border-bottom mb-2">
+                        <a class="btn btn-secondary w-100 text-center"><span>{{ __('DVS') }}</span><i
+                                class="fa-solid fa-dragon logo-icon text-primary"></i></a>
                     </nav>
-                    <hr class="mt-0 mb-2">
                     @include('layout.sidebar')
                 </div>
-                <div class="flex-grow-1 border rounded">
-                    @include('layout.header')
-                    @yield('content')
+                <div class="flex-grow-1 vh-100 position-relative">
+                    <div class="content position-absolute">
+                        <div class="content-rim container-fluid h-100 p-1">
+                            <div class="container-fluid h-100 overflow-y-scroll bg-dark rounded p-0" data-bs-theme="dark">
+                                @yield('content')
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
