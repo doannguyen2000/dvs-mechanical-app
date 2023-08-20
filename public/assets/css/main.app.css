@@ -2,13 +2,62 @@
     min-width: 150px;
 }
 
-@media screen and (max-width: 991px) {
-    body {
-        font-size: 80% !important;
-    }
+#navHeader {
+    top: 0;
+    right: 0;
+    left: 150px;
+}
 
+#headerFire {
+    display: none;
+}
+
+.content {
+    top: 54.4px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.content .filter-button {
+    display: none;
+}
+
+.content .warehouse-equipment-statistics a {
+    text-decoration: none;
+}
+
+.logo-icon {
+    animation: rotateAnimation 2s linear infinite; /* 4s cho một vòng xoay, linear cho tốc độ đều, infinite cho xoay liên tục */
+}
+
+@keyframes rotateAnimation {
+    0%,
+    100% {
+        transform: rotate(-20deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes fadeAnimation {
+    0%,
+    100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+#headerFire,
+#headerWater {
+    animation: fadeAnimation 2s ease-in-out infinite;
+}
+@media screen and (max-width: 991px) {
     #sidebar {
-        min-width: auto;
+        min-width: 57px;
     }
 
     #sidebar nav {
@@ -22,6 +71,30 @@
 
     #sidebar span {
         display: none;
-        transition: 1s;
+    }
+
+    #navHeader {
+        left: 57px;
+    }
+
+    #headerSearch,
+    #headerWater {
+        display: none !important;
+    }
+
+    #headerFire {
+        display: block;
+    }
+
+    .logo-icon {
+        color: red !important;
+    }
+
+    .content .filter-box {
+        display: none !important;
+    }
+
+    .content .filter-button {
+        display: inline-block !important;
     }
 }
