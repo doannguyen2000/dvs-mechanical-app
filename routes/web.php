@@ -26,6 +26,20 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
-        return view('page.admin.home.home');
+        return view('page.home.home');
     })->name('home');
+    Route::prefix('users')->group(function () {
+        Route::get('/', function () {
+            return view('page.users.get-list');
+        })->name('users.getList');
+        Route::get('{id}', function () {
+            return view('page.users.show');
+        })->name('users.show');
+        Route::get('{id}/jobs', function () {
+            return view('page.users.get-job');
+        })->name('users.getJob');
+        Route::get('{id}/attendances', function () {
+            return view('page.users.get-attendance');
+        })->name('users.getAttendance');
+    });
 });
