@@ -19,7 +19,7 @@
             @include('layout.header')
             <div class="d-flex vh-100">
                 <div class="bg-dark sidebar" id="sidebar" data-bs-theme="dark">
-                    <nav class="navbar border-bottom mb-2">
+                    <nav class="nav-logo navbar border-bottom mb-2">
                         <a class="btn btn-secondary w-100 text-center"><span>{{ __('DVS') }}</span><i
                                 class="fa-solid fa-dragon logo-icon text-primary"></i></a>
                     </nav>

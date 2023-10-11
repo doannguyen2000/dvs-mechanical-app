@@ -2,7 +2,7 @@
     <a href="{{ route('home') }}"
         class="list-group-item list-group-item-action @if (Route::currentRouteName() === 'home') active @endif list-group-item-dark"><i
             class="fa-solid fa-house me-1"></i><span>{{ __('Trang chính') }}</span></a>
-    <a href="#"
+    <a href="{{ route('users.getList') }}"
         class="list-group-item list-group-item-action @if (Route::currentRouteName() && Str::startsWith(Route::currentRouteName(), 'users.')) active @endif list-group-item-dark"><i
             class="fa-solid fa-users-gear me-1"></i><span>{{ __('Tài khoản') }}</span></a>
     <a href="#"

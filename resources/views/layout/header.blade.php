@@ -55,7 +55,7 @@
             </div>
 
             <div class="btn-group">
-                <img src="{{ asset('assets/images/adminAvatar.jpg') }}" class="border border-primary-subtle rounded-5"
+                <img role="button" src="{{ asset('assets/images/adminAvatar.jpg') }}" class="border border-primary-subtle rounded-5"
                     style="width: 37px;height: 37px;" alt="..." data-bs-toggle="dropdown" aria-expanded="false">
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="#">{{ Auth::user()->name }}</a></li>
