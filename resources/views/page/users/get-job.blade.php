@@ -13,16 +13,16 @@
         </div>
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a href="{{ route('users.show', ['id' => 1]) }}"
+                <a href="{{ route('users.show', ['id' => request()->id]) }}"
                     class="nav-link @if (Route::currentRouteName() === 'users.show') active @endif"
                     aria-current="page">{{ __('Thông tin') }}</a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('users.getJob', ['id' => 1]) }}"
-                    class="nav-link @if (Route::currentRouteName() === 'users.getJob') active @endif">{{ __('Công việc') }}</a>
+                <a href="{{ route('users.jobs.get-list', ['id' => request()->id]) }}"
+                    class="nav-link @if (strstr(Route::currentRouteName(), 'users.jobs')) active @endif">{{ __('Công việc') }}</a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('users.getAttendance', ['id' => 1]) }}"
+                <a href="{{ route('users.getAttendance', ['id' => request()->id]) }}"
                     class="nav-link @if (Route::currentRouteName() === 'users.getAttendance') active @endif">{{ __('Chuyên cần') }}</a>
             </li>
         </ul>
@@ -113,8 +113,9 @@
                                         <td>dữ liệu{{ $j }}</td>
                                     @endfor
                                     <td class="text-center">
-                                        <span><i class="fa-solid fa-eye text-primary"></i></span>
-                                        <span><i class="fa-regular fa-trash-can text-danger"></i></span>
+                                        <span><a
+                                                href="{{ route('users.jobs.show-job-user', ['id' => request()->id, 'jobId' => $i]) }}"><i
+                                                    class="fa-solid fa-eye text-primary"></i></a> </span>
                                     </td>
                                 </tr>
                             @endfor

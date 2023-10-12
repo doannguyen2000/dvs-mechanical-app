@@ -35,9 +35,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('{id}', function () {
             return view('page.users.show');
         })->name('users.show');
-        Route::get('{id}/jobs', function () {
-            return view('page.users.get-job');
-        })->name('users.getJob');
+        Route::prefix('{id}/jobs')->group(function () {
+            Route::get('', function () {
+                return view('page.users.get-job');
+            })->name('users.jobs.get-list');
+            Route::get('{jobId}', function () {
+                return view('page.users.jobs.show-job-user');
+            })->name('users.jobs.show-job-user');
+        });
+
         Route::get('{id}/attendances', function () {
             return view('page.users.get-attendance');
         })->name('users.getAttendance');
