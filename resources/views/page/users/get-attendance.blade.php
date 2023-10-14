@@ -22,8 +22,8 @@
                     class="nav-link @if (strstr(Route::currentRouteName(), 'users.jobs')) active @endif">{{ __('Công việc') }}</a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('users.getAttendance', ['id' => request()->id]) }}"
-                    class="nav-link @if (Route::currentRouteName() === 'users.getAttendance') active @endif">{{ __('Chuyên cần') }}</a>
+                <a href="{{ route('users.attendances.get-list', ['id' => request()->id]) }}"
+                    class="nav-link @if (strstr(Route::currentRouteName(), 'users.attendances')) active @endif">{{ __('Chuyên cần') }}</a>
             </li>
         </ul>
         <div class="container-fluid p-3">
@@ -120,8 +120,9 @@
                                         <td>dữ liệu{{ $j }}</td>
                                     @endfor
                                     <td class="text-center">
-                                        <span><i class="fa-solid fa-eye text-primary"></i></span>
-                                        <span><i class="fa-regular fa-trash-can text-danger"></i></span>
+                                        <span><a
+                                                href="{{ route('users.attendances.show-attendance-user', ['id' => request()->id, 'attendanceId' => $i]) }}"><i
+                                                    class="fa-solid fa-eye text-primary"></i></a></span>
                                     </td>
                                 </tr>
                             @endfor
