@@ -22,8 +22,8 @@
                     class="nav-link @if (strstr(Route::currentRouteName(), 'users.jobs')) active @endif">{{ __('Công việc') }}</a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('users.getAttendance', ['id' => request()->id]) }}"
-                    class="nav-link @if (Route::currentRouteName() === 'users.getAttendance') active @endif">{{ __('Chuyên cần') }}</a>
+                <a href="{{ route('users.attendances.get-list', ['id' => request()->id]) }}"
+                    class="nav-link @if (strstr(Route::currentRouteName(), 'users.attendances')) active @endif">{{ __('Chuyên cần') }}</a>
             </li>
         </ul>
         <div class="container-fluid p-3">

@@ -43,9 +43,13 @@ Route::middleware(['auth'])->group(function () {
                 return view('page.users.jobs.show-job-user');
             })->name('users.jobs.show-job-user');
         });
-
-        Route::get('{id}/attendances', function () {
-            return view('page.users.get-attendance');
-        })->name('users.getAttendance');
+        Route::prefix('{id}/attendances')->group(function () {
+            Route::get('', function () {
+                return view('page.users.get-attendance');
+            })->name('users.attendances.get-list');
+            Route::get('{attendanceId}', function () {
+                return view('page.users.attendances.show-attendance-user');
+            })->name('users.attendances.show-attendance-user');
+        });
     });
 });
