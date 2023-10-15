@@ -28,14 +28,14 @@
         </ul>
         <div class="container-fluid p-3">
             <section>
-                <div class="card mb-1 " style="height: 165px;">
+                <div class="card mb-1">
                     <h6 class="card-header px-1">{{ __('Ngày hôm nay') }}</h6>
-                    <div class="card-body p-0" style="height: 139.8px;">
+                    <div class="card-body p-0">
                         <div class="d-flex justify-content-between p-2 border-bottom">
                             <span class="badge rounded-pill text-bg-info">Đã chấm công</span>
                             <span class="badge rounded-pill text-bg-info">Đang làm việc</span>
                         </div>
-                        <div class="container-fluid p-1 bg-secondary-subtle text-secondary border-bottom mb-1">
+                        <div class="container-fluid p-1 bg-secondary-subtle text-secondary border-bottom">
                             <div class="row g-1">
                                 <div class="col-md">
                                     <p class="fw-bold bg-dark px-2 my-auto border rounded">
@@ -49,6 +49,12 @@
                                     <p class="fw-bold bg-dark px-2 my-auto border rounded">{{ __('Tháng này: 12') }}</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="container-fluid p-1">
+                            <a role="button"
+                                href="{{ route('users.attendances.show-attendance-user', ['id' => request()->id, 'attendanceId' => 1]) }}"
+                                class="btn btn-sm btn-outline-info w-auto"><span class="me-2"><i
+                                        class="fa-regular fa-clipboard text-primary"></i></span>{{ __('Xem chi tiết') }}</a>
                         </div>
                     </div>
                 </div>

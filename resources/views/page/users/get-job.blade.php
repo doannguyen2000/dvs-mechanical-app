@@ -28,12 +28,15 @@
         </ul>
         <div class="container-fluid p-3">
             <section>
-                <div class="card mb-1 " style="height: 165px;">
+                <div class="card mb-1">
                     <h6 class="card-header px-1">{{ __('Ngày hôm nay') }}</h6>
-                    <div class="card-body p-0" style="height: 139.8px;">
+                    <div class="card-body p-0">
                         @for ($i = 0; $i < 3; $i++)
-                            <div class="d-flex justify-content-between p-2 border-bottom">
-                                <span class="badge rounded-pill text-bg-info">Công việc {{ $i + 1 }}</span>
+                            <div class="d-flex justify-content-between p-2">
+                                <span class="badge rounded-pill text-bg-info"> <a
+                                        class="text-dark link-offset-2 link-underline link-underline-opacity-0"
+                                        href="{{ route('users.jobs.show-job-user', ['id' => request()->id, 'jobId' => $i + 1]) }}">Công
+                                        việc {{ $i + 1 }}</a></span>
                                 <span class="badge rounded-pill text-bg-info">8h-12h</span>
                                 <span class="badge rounded-pill text-bg-success">Đang làm việc</span>
                             </div>
