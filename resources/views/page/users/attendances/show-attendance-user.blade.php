@@ -6,7 +6,7 @@
                 <span class="text-primary"> Nguyễn văn A</span>
             </h5>
             <h5>
-                <a href="{{ route('users.getList') }}">
+                <a href="{{ route('users.get-list') }}">
                     <i class="fa-solid fa-rotate-left"></i>
                 </a>
             </h5>
