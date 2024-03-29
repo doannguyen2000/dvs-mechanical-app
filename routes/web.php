@@ -29,12 +29,23 @@ Route::middleware(['auth'])->group(function () {
         return view('page.home.home');
     })->name('home');
     Route::prefix('users')->group(function () {
-        Route::get('/', function () {
+        Route::get('', function () {
             return view('page.users.get-list');
-        })->name('users.getList');
+        })->name('users.get-list');
+        //users-salaries
+        Route::prefix('salaries')->group(function () {
+            Route::get('', function () {
+                return view('page.users.salaries.get-salary-user');
+            })->name('users.salaries.get-list');
+            Route::get('{id}/salary-detail', function () {
+                return view('page.users.salaries.show-salary-user');
+            })->name('users.salaries.show-salary-user');
+        });
+        //
         Route::get('{id}', function () {
             return view('page.users.show');
         })->name('users.show');
+        //users-job
         Route::prefix('{id}/jobs')->group(function () {
             Route::get('', function () {
                 return view('page.users.get-job');
@@ -43,6 +54,8 @@ Route::middleware(['auth'])->group(function () {
                 return view('page.users.jobs.show-job-user');
             })->name('users.jobs.show-job-user');
         });
+        //
+        // users-attendances
         Route::prefix('{id}/attendances')->group(function () {
             Route::get('', function () {
                 return view('page.users.get-attendance');
@@ -51,5 +64,6 @@ Route::middleware(['auth'])->group(function () {
                 return view('page.users.attendances.show-attendance-user');
             })->name('users.attendances.show-attendance-user');
         });
+        //
     });
 });

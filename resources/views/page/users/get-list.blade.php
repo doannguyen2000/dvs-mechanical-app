@@ -3,10 +3,11 @@
     <div class="rounded">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">{{ __('Tài khoản') }}</a>
+                <a class="nav-link @if (Route::currentRouteName() === 'users.get-list') active @endif" aria-current="page"
+                    href="{{ route('users.get-list') }}">{{ __('Tài khoản') }}</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">{{ __('Tiền lương') }}</a>
+            <li class="nav-item ">
+                <a class="nav-link @if (strstr(Route::currentRouteName(), 'users.salaries')) active @endif" href="{{ route('users.salaries.get-list') }}">{{ __('Tiền lương') }}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">{{ __('Trạng thái') }}</a>

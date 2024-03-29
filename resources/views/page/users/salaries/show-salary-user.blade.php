@@ -1,50 +1,43 @@
 @extends('layout.main')
 @section('content')
-    <div class="border border-bottom-0 rounded">
-        <div class="d-flex justify-content-between p-2 border-bottom">
-            <h5 class="text-white">
-                <span class="text-primary"> Nguyễn văn A</span>
-            </h5>
-            <h5>
-                <a href="{{ route('users.get-list') }}">
-                    <i class="fa-solid fa-rotate-left"></i>
-                </a>
-            </h5>
-        </div>
+    <div class="rounded">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a href="{{ route('users.show', ['id' => request()->id]) }}"
-                    class="nav-link @if (Route::currentRouteName() === 'users.show') active @endif"
-                    aria-current="page">{{ __('Thông tin') }}</a>
+                <a class="nav-link @if (Route::currentRouteName() === 'users.get-list') active @endif" aria-current="page"
+                    href="{{ route('users.get-list') }}">{{ __('Tài khoản') }}</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link @if (strstr(Route::currentRouteName(), 'users.salaries')) active @endif"
+                    href="{{ route('users.salaries.get-list') }}">{{ __('Tiền lương') }}</a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('users.jobs.get-list', ['id' => request()->id]) }}"
-                    class="nav-link @if (strstr(Route::currentRouteName(), 'users.jobs')) active @endif">{{ __('Công việc') }}</a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('users.attendances.get-list', ['id' => request()->id]) }}"
-                    class="nav-link @if (strstr(Route::currentRouteName(), 'users.attendances')) active @endif">{{ __('Chuyên cần') }}</a>
+                <a class="nav-link" href="#">{{ __('Trạng thái') }}</a>
             </li>
         </ul>
         <div class="container-fluid p-3">
-            <section>
+        <section>
                 <div class="card mb-1 ">
                     <div class="d-flex justify-content-between card-header px-1">
-                        <h6 class="m-0 p-0">Thông tin chi tiết: {{ __('Công việc ') . request()->jobId }}</h6>
+                        <h6 class="m-0 p-0">Chi tiết bảng lương</h6>
                         <a href="#" class="link-offset-2 link-underline link-underline-opacity-0 me-2">
                             <i class="fa-solid fa-laptop-file border rounded p-1 m-0 bg-dark"></i>
                         </a>
                     </div>
                     <div class="card-body row p-2">
                         <div class="col-sm-6 mb-1">
-                            <label for="" class="form-label">{{ __('Tên công việc') }}</label>
+                            <label for="" class="form-label">{{ __('Mã tài khoản') }}</label>
                             <input type="text" class="form-control form-control-sm" id=""
-                                value="{{ __('Công việc ') . request()->jobId }}" readonly>
+                                value="{{ __('Mã tài khoản') }}" readonly>
                         </div>
                         <div class="col-sm-6 mb-1">
-                            <label for="" class="form-label">{{ __('Loại công việc') }}</label>
+                            <label for="" class="form-label">{{ __('Tên nhân viên') }}</label>
                             <input type="text" class="form-control form-control-sm" id=""
-                                value="{{ __('Loại công việc ') }}" readonly>
+                                value="{{ __('Nhân viên ') . request()->jobId }}" readonly>
+                        </div>
+                        <div class="col-sm-6 mb-1">
+                            <label for="" class="form-label">{{ __('Chức vụ') }}</label>
+                            <input type="text" class="form-control form-control-sm" id=""
+                                value="{{ __('Chức vụ') }}" readonly>
                         </div>
                         <div class="col-sm-6 mb-1">
                             <label for="" class="form-label">{{ __('Người thực hiên công việc') }}</label>
